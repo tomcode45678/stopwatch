@@ -53,6 +53,7 @@ h1 span, noscript{
 
 #control-panel{
     margin: 3em 0;
+    padding: 0 0 0 4px;
     font-size: 1em;
 }
 
@@ -84,8 +85,12 @@ h1 span, noscript{
 }
 
 @media screen and (max-width: 380px) { /* Mobile */
+    #control-panel{
+        padding: 0;
+    }
+
     #stopwatch span{
-        letter-spacing: 5px;
+        letter-spacing: 0;
         font-size: 4em;
         padding: 0;
     }
