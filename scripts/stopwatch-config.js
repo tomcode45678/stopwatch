@@ -27,7 +27,7 @@ define(function(){
         stopWatch.$stopStopWatch = document.getElementById('stop').getElementsByTagName('a')[0];
         stopWatch.$resetStopWatch = document.getElementById('reset').getElementsByTagName('a')[0];
 
-        stopWatch.$tenthSeconds = document.getElementById('miliseconds');
+        stopWatch.$hundredthSeconds = document.getElementById('hundredth-seconds');
         stopWatch.$seconds = document.getElementById('seconds');
         stopWatch.$minutes = document.getElementById('minutes');
 

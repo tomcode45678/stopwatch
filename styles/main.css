@@ -4,21 +4,15 @@ body{
 }
 
 #wrapper{
-    width: 80%;
     margin: 0 auto;
-}
-
-#header, #stopwatch, #footer{
-    width: 100%;
+    text-align: center;
 }
 
 h1, noscript{
     margin: 1.5em auto;
-    width: 100%;
 }
 
 ul{
-    width: 100%;
     padding: 0;
     list-style: none;
 }
@@ -36,19 +30,19 @@ h1 span, noscript{
     border-bottom: 0.15em solid #ff9310;
 }
 
-#header, #stopwatch, #footer{
-    text-align: center;
-}
-
 #stopwatch{
     margin: 4em 0;
 }
 
 #stopwatch span{
     color: #ff6303;
-    letter-spacing: 0.2em;
-    padding: 0 0 0 0.2em;
     font-size: 4em;
+    min-width: 1.4em;
+    display: inline-block;
+}
+
+#stopwatch span.gap{
+    min-width: 0;
 }
 
 #control-panel{
@@ -82,16 +76,11 @@ h1 span, noscript{
     bottom: 0;
     left: 0;
     margin: 1.2em 0;
+    width: 100%;
 }
 
 @media screen and (max-width: 380px) { /* Mobile */
     #control-panel{
-        padding: 0;
-    }
-
-    #stopwatch span{
-        letter-spacing: 0;
-        font-size: 4em;
         padding: 0;
     }
 }
