@@ -21,7 +21,7 @@ ul li{
     display: inline;
 }
 
-h1, #control-panel a, noscript{
+h1, #control-panel a, span, noscript{
     color: #ff9310;
     text-transform: uppercase;
 }
@@ -35,10 +35,13 @@ h1 span, noscript{
 }
 
 #stopwatch span{
-    color: #ff9310;
     font-size: 4em;
     min-width: 1.4em;
     display: inline-block;
+}
+
+#stopwatch span, #footer{
+    font-family: 'Roboto', sans-serif;
 }
 
 #stopwatch span.gap{
@@ -53,7 +56,6 @@ h1 span, noscript{
 
 #control-panel li{
     margin: 0 0 0 -4px;
-    border-left: 3px solid #ff9310;
 }
 
 #control-panel li:first-child{
@@ -61,13 +63,13 @@ h1 span, noscript{
 }
 
 #control-panel a{
-    padding: 1em;
+    padding: 1em 1em 0.5em 1em;
     font-size: 1.2em;
     text-decoration: none;
 }
 
 #control-panel a:hover{
-    border-bottom: 3px solid #ff9310;
+    border-bottom: 2px solid #ff9310;
 }
 
 #footer{
