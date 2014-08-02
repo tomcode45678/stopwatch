@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Fugaz One', cursive;
 }
 
 #wrapper{
@@ -35,7 +35,7 @@ h1 span, noscript{
 }
 
 #stopwatch span{
-    color: #ff6303;
+    color: #ff9310;
     font-size: 4em;
     min-width: 1.4em;
     display: inline-block;
@@ -53,7 +53,7 @@ h1 span, noscript{
 
 #control-panel li{
     margin: 0 0 0 -4px;
-    border-left: 1px solid #ff6303;
+    border-left: 3px solid #ff9310;
 }
 
 #control-panel li:first-child{
@@ -62,11 +62,12 @@ h1 span, noscript{
 
 #control-panel a{
     padding: 1em;
+    font-size: 1.2em;
     text-decoration: none;
 }
 
 #control-panel a:hover{
-    border-bottom: 3px solid #ff6303;
+    border-bottom: 3px solid #ff9310;
 }
 
 #footer{
