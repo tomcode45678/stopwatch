@@ -18,20 +18,25 @@ modules = Object.keys(requirejs.s.contexts._.config.paths);
 define(function(){
     // Load modules
     require(modules, function(){
-
         // Retrieve stop watch object
         var stopWatch = require('stopWatch');
 
         // Set global variables based on document object model
-        stopWatch.$startStopWatch = document.getElementById('start').getElementsByTagName('a')[0];
-        stopWatch.$stopStopWatch = document.getElementById('stop').getElementsByTagName('a')[0];
-        stopWatch.$resetStopWatch = document.getElementById('reset').getElementsByTagName('a')[0];
+        stopWatch.clickEvents({
+            // Stopwatch buttons
+            $startStopWatch     : document.getElementById('start').getElementsByTagName('a')[0],
+            $stopStopWatch      : document.getElementById('stop').getElementsByTagName('a')[0],
+            $resetStopWatch     : document.getElementById('reset').getElementsByTagName('a')[0],
 
-        stopWatch.$hundredthSeconds = document.getElementById('hundredth-seconds');
-        stopWatch.$seconds = document.getElementById('seconds');
-        stopWatch.$minutes = document.getElementById('minutes');
+            // Number locations displaying the stopwatch result
+            $hundredthSeconds   : document.getElementById('hundredth-seconds'),
+            $seconds            : document.getElementById('seconds'),
+            $minutes            : document.getElementById('minutes'),
 
-        // Initiation functions
-        stopWatch.clickEvents();
+            // Default count variables
+            hundredthcounter    : 0,
+            seccounter          : 0,
+            mincounter          : 0
+        });
     });
 });

@@ -4,27 +4,25 @@
 
 define(['stopWatch'], function(){
     // Global set interval and stopwatch module - scope changes upon click event attachment
-    var timerRun, stopWatch = {
-        // Document object model elements
-        $startStopWatch: '', $stopStopWatch: '', $resetStopWatch: '', $hundredthSeconds: '', $seconds: '', $minutes: '',
-        // Incremental variables
-        timerRun: 0, hundredthcounter: 0, seccounter: 0, mincounter: 0,
-
+    var config, stopWatch = {
         /**
          * Set click handlers
+         * @param configuration
          */
-        clickEvents: function(){
-            this.$startStopWatch.onclick = this.start;
-            this.$stopStopWatch.onclick = this.stop;
-            this.$resetStopWatch.onclick = this.reset;
+        clickEvents: function(configuration){
+            config = configuration;
+            config.$startStopWatch.onclick = this.start;
+            config.$stopStopWatch.onclick = this.stop;
+            config.$resetStopWatch.onclick = this.reset;
         },
 
         /**
          * Clear existing timer and restart it
+         * @returns {boolean}
          */
         start: function(){
-            clearInterval(timerRun);
-            timerRun = setInterval(function(){stopWatch.run()}, 10);
+            clearInterval(config.timer);
+            config.timer = setInterval(function(){stopWatch.run()}, 10);
             return false;
         },
 
@@ -32,81 +30,78 @@ define(['stopWatch'], function(){
          * Run counter checks
          */
         run: function(){
-            this.hundredthcounter++;
+            config.hundredthcounter++;
             this.hundredthcounterCheck();
         },
 
         /**
          * Check hundredths of second
+         * @returns {*}
          */
         hundredthcounterCheck: function(){
-            if(this.hundredthcounter < 10){
-                this.$hundredthSeconds.innerHTML = "0" + this.hundredthcounter;
-                return;
+            if(config.hundredthcounter < 10){
+                return config.$hundredthSeconds.innerHTML = "0" + config.hundredthcounter;
             }
-            if(this.hundredthcounter === 100){
-                this.$hundredthSeconds.innerHTML = this.hundredthcounter = 0;
+            if(config.hundredthcounter === 100){
+                config.$hundredthSeconds.innerHTML = config.hundredthcounter = 0;
                 // Increment second and check
-                this.seccounter++;
-                this.secondsCounterCheck();
-                return;
+                config.seccounter++;
+                return this.secondsCounterCheck();
             }
-            this.$hundredthSeconds.innerHTML = this.hundredthcounter;
+            return config.$hundredthSeconds.innerHTML = config.hundredthcounter;
         },
 
         /**
          * Check seconds
+         * @returns {*}
          */
         secondsCounterCheck: function(){
-            if(this.seccounter < 10){
-                this.$seconds.innerHTML = "0" + this.seccounter;
-                return;
+            if(config.seccounter < 10){
+                return config.$seconds.innerHTML = "0" + config.seccounter;
             }
-            if(this.seccounter === 60){
-                this.$seconds.innerHTML = this.seccounter = 0;
+            if(config.seccounter === 60){
+                config.$seconds.innerHTML = config.seccounter = 0;
                 // Increment minute and check
-                this.mincounter++;
-                this.minutesCounterCheck();
-                return;
+                config.mincounter++;
+                return this.minutesCounterCheck();
             }
-            this.$seconds.innerHTML = this.seccounter;
+            return config.$seconds.innerHTML = config.seccounter;
         },
 
         /**
          * Check minutes
+         * @returns {*}
          */
         minutesCounterCheck: function(){
-            if(this.mincounter < 10){
-                this.$minutes.innerHTML = "0" + this.mincounter;
-                return;
+            if(config.mincounter < 10){
+                return config.$minutes.innerHTML = "0" + config.mincounter;
             }
-            if(this.mincounter == 60){
-                clearInterval(timerRun);
-                return;
+            if(config.mincounter == 60){
+                return clearInterval(config.timer);
             }
-            this.$minutes.innerHTML = this.mincounter;
+            return config.$minutes.innerHTML = config.mincounter;
         },
 
         /**
          * Stop timer
+         * @returns {boolean}
          */
         stop: function(){
-            clearInterval(timerRun);
+            clearInterval(config.timer);
             return false;
         },
 
         /**
          * Reset stopwatch and dependent variables
+         * @returns {boolean}
          */
         reset: function(){
-            // Scope (this) changed to DOM element use object name
-            clearInterval(timerRun);
-            stopWatch.hundredthcounter = stopWatch.seccounter = stopWatch.mincounter = 0;
-            stopWatch.$hundredthSeconds.innerHTML = stopWatch.$seconds.innerHTML = stopWatch.$minutes.innerHTML = "00";
+            clearInterval(config.timer);
+            config.hundredthcounter = config.seccounter = config.mincounter = 0;
+            config.$hundredthSeconds.innerHTML = config.$seconds.innerHTML = config.$minutes.innerHTML = "00";
             return false;
         }
     };
-
     // Return object
     return stopWatch;
 });
