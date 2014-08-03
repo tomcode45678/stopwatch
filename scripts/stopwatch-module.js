@@ -61,7 +61,8 @@ define(['stopWatch'], function(){
                 return config.$hundredthSeconds.innerHTML = "0" + config.hundredthcounter;
             }
             if(config.hundredthcounter === 100){
-                config.$hundredthSeconds.innerHTML = config.hundredthcounter = 0;
+                config.$hundredthSeconds.innerHTML = "00";
+                config.hundredthcounter = 0;
                 // Increment second and check
                 config.seccounter++;
                 return this.secondsCounterCheck();
@@ -78,7 +79,8 @@ define(['stopWatch'], function(){
                 return config.$seconds.innerHTML = "0" + config.seccounter;
             }
             if(config.seccounter === 60){
-                config.$seconds.innerHTML = config.seccounter = 0;
+                config.$seconds.innerHTML = "00";
+                config.seccounter = 0;
                 // Increment minute and check
                 config.mincounter++;
                 return this.minutesCounterCheck();
