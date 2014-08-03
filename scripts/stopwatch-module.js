@@ -22,8 +22,26 @@ define(['stopWatch'], function(){
          */
         start: function(){
             clearInterval(config.timer);
+            if(config.addLap === true){
+                stopWatch.recordLap();
+            }
             config.timer = setInterval(function(){stopWatch.run()}, 10);
+            config.$startStopWatch.innerHTML = "Lap";
+            config.addLap = true;
             return false;
+        },
+
+        /**
+         * Record lap time
+         */
+        recordLap: function(){
+            config.$laps.setAttribute('class','active');
+            config.$laps.innerHTML +=
+                "<li>"+
+                    config.$minutes.innerHTML+":"+
+                    config.$seconds.innerHTML+":"+
+                    config.$hundredthSeconds.innerHTML
+                +"</li>";
         },
 
         /**
@@ -88,6 +106,8 @@ define(['stopWatch'], function(){
          */
         stop: function(){
             clearInterval(config.timer);
+            config.$startStopWatch.innerHTML = "Start";
+            config.addLap = false;
             return false;
         },
 
@@ -97,6 +117,10 @@ define(['stopWatch'], function(){
          */
         reset: function(){
             clearInterval(config.timer);
+            config.$startStopWatch.innerHTML = "Start";
+            config.$laps.innerHTML = "";
+            config.$laps.removeAttribute('class');
+            config.addLap = false;
             config.hundredthcounter = config.seccounter = config.mincounter = 0;
             config.$hundredthSeconds.innerHTML = config.$seconds.innerHTML = config.$minutes.innerHTML = "00";
             return false;

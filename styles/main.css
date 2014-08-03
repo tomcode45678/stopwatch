@@ -21,7 +21,7 @@ ul li{
     display: inline;
 }
 
-h1, #control-panel a, span, noscript{
+h1, noscript, span, #control-panel a, #laps{
     color: #ff9310;
     text-transform: uppercase;
 }
@@ -49,9 +49,8 @@ h1 span, noscript{
 }
 
 #control-panel{
-    margin: 3em 0;
+    margin: 3em 0 2em 0;
     padding: 0 0 0 4px;
-    font-size: 1em;
 }
 
 #control-panel li{
@@ -63,27 +62,46 @@ h1 span, noscript{
 }
 
 #control-panel a{
-    padding: 1em 1em 0.5em 1em;
+    display: inline-block;
+    border-top: 3px solid #FFF;
+    padding: 0.5em 0;
+    width: 5em;
     font-size: 1.2em;
     text-decoration: none;
 }
 
 #control-panel a:hover{
+    border-top: 3px solid #ff9310;
+}
+
+#laps{
+    margin: 0 auto;
+    width: 15em;
+}
+
+#laps.active{
+    border-top: 2px solid #ff9310;
     border-bottom: 2px solid #ff9310;
+}
+
+#laps li{
+    text-align: right;
+    font-size: 1.4em;
+    padding: 10px;
 }
 
 #footer{
     color: #ffb24a;
     font-size: 0.8em;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    margin: 1.2em 0;
-    width: 100%;
+    margin: 5em 0 0 1.5em;
 }
 
 @media screen and (max-width: 380px) { /* Mobile */
     #control-panel{
         padding: 0;
+    }
+
+    #laps li{
+        width: 80%;
     }
 }

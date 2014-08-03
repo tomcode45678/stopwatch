@@ -33,6 +33,10 @@ define(function(){
             $seconds            : document.getElementById('seconds'),
             $minutes            : document.getElementById('minutes'),
 
+            // Laps variables
+            $laps               : document.getElementById('laps'),
+            addLap            : false,
+
             // Default count variables
             hundredthcounter    : 0,
             seccounter          : 0,
